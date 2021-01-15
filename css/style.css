@@ -2,6 +2,25 @@
     padding: 5%;
 }
 
+.navbar-brand {
+    width: auto;
+}
+
+.nav-link {
+    width: auto;
+}
+
+.nav-item {
+    width: auto;
+}
+
+.new-page {
+    float: right;
+    width: auto;
+    background-color: rgba(57, 255, 57, 0.74);
+    border-radius: 100px;
+}
+
 .element-container {
     display: flex;
     flex-direction: row;
