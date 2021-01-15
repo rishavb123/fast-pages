@@ -1,0 +1,11 @@
+.main {
+    padding: 5%;
+}
+
+.element-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
