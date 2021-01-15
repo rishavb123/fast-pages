@@ -10,19 +10,33 @@ function updatedPages() {
             </li>
         `);
     }
+    $(".pages-list").append(`
+        <a class='new-page btn' onclick='newPage(prompt("What is the name of the page?"))'>+</a>
+    `);
+}
+
+function newPage(name) {
+    db.collection("pages").doc().set({
+        name,
+        elements: []
+    })
 }
 
 function updatedCurrentPage() {
-    $(".main").clear();
-    const page = state.page[state.currentPage];
+    $(".main").empty();
+    const page = state.pages[state.currentPage];
     for (let element of page.elements) {
         if (element.horizontal) {
-            $(".main").append("<div class='element-container'></div>");
-            
+            const id = makeid(10);
+            $(".main").append(`<div id='${id}' class='element-container'></div>`);
+            const div = $("#" + id);
+            for (let html of element.elements) {
+                div.append(html);
+            }
         } else {
             $(".main").append(`
                 <div class="element-container">
-                    ${page.html}
+                    ${element.html}
                 </div>
             `);
         }
